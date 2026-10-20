@@ -1,3 +1,4 @@
+/* 登录方式和密码策略。只保存在当前浏览器会话。 */
 var SETTINGS_KEY = "console-settings";
 
 function defaultSettings() {
