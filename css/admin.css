@@ -1,3 +1,4 @@
+/* 用户、角色、日志和系统设置页的样式。 */
 .page-fill { display: flex; flex-direction: column; min-height: calc(100vh - 48px); }
 .page-fill .filter-bar,
 .page-fill .multi-tabs { flex-shrink: 0; }
