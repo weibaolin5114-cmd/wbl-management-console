@@ -1,3 +1,4 @@
+/* 操作日志页：按时间、操作人和类型筛选，并分页。 */
 var logRows = [
   { user: "管理员", time: "2026-10-20 09:18:06", action: "登录", kind: "tag-primary", detail: "登录成功", ip: "10.0.0.8" },
   { user: "操作员", time: "2026-10-20 09:02:41", action: "新增", kind: "tag-info", detail: "新增一条记录", ip: "10.0.0.12" },
