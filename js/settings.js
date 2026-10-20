@@ -1,3 +1,4 @@
+/* 系统设置页：登录方式、密码策略、基本信息。 */
 function showPanel(id) {
   document.querySelectorAll(".config-sidebar-item").forEach(function (item) {
     item.classList.toggle("active", item.getAttribute("data-panel") === id);
