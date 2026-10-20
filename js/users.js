@@ -1,3 +1,4 @@
+/* 用户页：查询、新增、编辑、重置密码、启用和停用。 */
 var users = [
   { username: "admin", displayName: "管理员", phone: "13800001001", roleId: "admin", enabled: true },
   { username: "operator", displayName: "操作员", phone: "13800001002", roleId: "operator", enabled: true },
