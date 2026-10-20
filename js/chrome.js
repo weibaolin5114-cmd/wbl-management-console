@@ -1,3 +1,4 @@
+/* 侧栏菜单和顶栏。改菜单文字改 label，改打开的页面改 href。 */
 var MENU = [
   { id: "dashboard", href: "index.html", label: "概览", icon: '<rect x="2.2" y="2.2" width="5.6" height="5.6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="10.2" y="2.2" width="5.6" height="5.6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="2.2" y="10.2" width="5.6" height="5.6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="10.2" y="10.2" width="5.6" height="5.6" rx="1" stroke="currentColor" stroke-width="1.4"/>' },
   { id: "list", href: "list.html", label: "列表", icon: '<path d="M4 4.5h10M4 9h10M4 13.5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>' },
