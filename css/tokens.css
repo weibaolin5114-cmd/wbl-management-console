@@ -1,3 +1,4 @@
+/* 主色配置。全系统只改 --color-primary。 */
 :root {
   /* 只改这一处，全系统主色会一起变 */
   --color-primary: #2A8371;
