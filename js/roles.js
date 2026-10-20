@@ -1,3 +1,4 @@
+/* 角色页：角色列表，以及菜单和操作权限。 */
 var catalog = [
   { id: "dashboard", label: "概览", buttons: [] },
   { id: "list", label: "列表", buttons: [{ id: "list.create", label: "新增" }, { id: "list.edit", label: "编辑" }, { id: "list.delete", label: "删除" }] },
