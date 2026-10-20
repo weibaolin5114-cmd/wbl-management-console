@@ -1,3 +1,4 @@
+/* 侧栏收起、用户菜单、修改密码弹窗，以及密码框的显示切换。 */
 function applyBrand() {
   var brand = window.BRAND || {};
   var name = brand.name || "管理系统";
