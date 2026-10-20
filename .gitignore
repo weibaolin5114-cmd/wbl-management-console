@@ -1,3 +1,4 @@
+# 不提交系统和编辑器产生的临时文件
 .DS_Store
 Thumbs.db
 desktop.ini
