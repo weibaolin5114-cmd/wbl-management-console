@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理系统</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="logs" data-page-title="操作日志">
+<div class="layout-side" id="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header" id="header"></header>
+    <div class="content page-fill">
+      <div class="multi-tabs">
+        <a class="multi-tab active" href="logs.html">操作日志<button class="tab-close" type="button" aria-label="关闭">×</button></a>
+      </div>
+      <div class="filter-bar">
+        <form class="filter-row" onsubmit="filterLogs(); return false;">
+          <div class="filter-item">
+            <label class="form-label">操作时间</label>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <input class="input" id="filter-date-from" type="date" style="width:150px">
+              <span>~</span>
+              <input class="input" id="filter-date-to" type="date" style="width:150px">
+            </div>
+          </div>
+          <div class="filter-item"><label class="form-label">操作人</label><select class="select" id="filter-user"><option value="">全部操作人</option><option>管理员</option><option>操作员</option><option>查阅员</option></select></div>
+          <div class="filter-item"><label class="form-label">操作类型</label><select class="select" id="filter-action"><option value="">全部类型</option><option>登录</option><option>登录失败</option><option>新增</option><option>编辑</option><option>重置密码</option><option>停用</option><option>新增角色</option><option>修改设置</option></select></div>
+          <div class="filter-actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn" type="button" onclick="resetLogFilter()">重置</button></div>
+        </form>
+      </div>
+      <div class="table-wrapper">
+        <div class="table-toolbar"><span style="font-size:16px;font-weight:500;">操作日志</span></div>
+        <table class="table" id="log-table">
+          <thead><tr><th style="width:60px;">序号</th><th>操作人</th><th>操作时间</th><th>操作类型</th><th>操作内容</th><th>IP 地址</th></tr></thead>
+          <tbody id="log-list"></tbody>
+        </table>
+        <div id="empty-msg" class="empty" style="display:none"><div>暂无操作日志</div></div>
+        <div class="pagination pager"><span class="page-info" id="pager-info"></span><button class="page-btn" id="pager-prev" type="button">上一页</button><button class="page-btn" id="pager-next" type="button">下一页</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/brand.js"></script>
+<script src="js/chrome.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/logs.js"></script>
+</body>
+</html>

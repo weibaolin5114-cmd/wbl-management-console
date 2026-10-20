@@ -32,29 +32,27 @@
           </button>
         </div>
       </div>
-      <div class="form-item">
+      <div class="form-item" id="captcha-item">
         <label class="form-label" for="captcha">验证码</label>
         <div class="captcha-row">
           <input class="input" id="captcha" type="text" required maxlength="8" autocomplete="off">
           <div class="captcha-box" aria-hidden="true">4K7M</div>
         </div>
       </div>
+      <div class="login-extra"><a href="forgot-password.html">忘记密码</a></div>
       <button class="btn btn-primary login-btn" type="submit">登录</button>
     </form>
   </div>
 </main>
 <script src="js/brand.js"></script>
+<script src="js/settings-data.js"></script>
 <script src="js/shell.js"></script>
 <script>
-  var password = document.getElementById("password");
-  var toggle = document.getElementById("pwd-toggle");
-  toggle.addEventListener("click", function () {
-    var show = password.type === "password";
-    password.type = show ? "text" : "password";
-    toggle.setAttribute("aria-label", show ? "隐藏密码" : "显示密码");
-    toggle.querySelector(".eye-open").hidden = show;
-    toggle.querySelector(".eye-off").hidden = !show;
-  });
+  if (!readSettings().captcha) {
+    var captchaItem = document.getElementById("captcha-item");
+    captchaItem.hidden = true;
+    captchaItem.querySelector("input").required = false;
+  }
 </script>
 </body>
 </html>

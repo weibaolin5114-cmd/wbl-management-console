@@ -6,13 +6,19 @@
 
 | 文件 | 内容 |
 | --- | --- |
-| `login.html` | 登录 |
+| `login.html` | 登录，含忘记密码入口 |
+| `forgot-password.html` | 忘记密码 |
+| `change-password.html` | 首次登录修改密码 |
 | `index.html` | 概览 |
 | `list.html` | 筛选、工具栏、表格、分页 |
 | `form.html` | 表单 |
 | `detail.html` | 详情 |
+| `logs.html` | 操作日志 |
+| `settings.html` | 系统设置，含登录方式、密码策略、基本信息 |
+| `users.html` | 用户管理 |
+| `roles.html` | 角色管理 |
 
-用浏览器打开 `index.html` 或 `login.html` 即可查看。页面之间可以互相跳转。修改密码和登录只演示界面，不连接账号服务。
+用浏览器打开 `index.html` 或 `login.html` 即可查看。侧栏菜单在 `js/chrome.js`。登录方式里的验证码开关保存在当前浏览器会话，并作用到登录页和忘记密码页。这些页面只演示界面，不连接账号服务。
 
 ## 改主色
 

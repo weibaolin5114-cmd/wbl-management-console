@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理系统</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="roles" data-page-title="角色管理">
+<div class="layout-side" id="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header" id="header"></header>
+    <div class="content page-fill">
+      <div class="multi-tabs">
+        <a class="multi-tab" href="users.html">用户管理<button class="tab-close" type="button" aria-label="关闭">×</button></a>
+        <a class="multi-tab active" href="roles.html">角色管理<button class="tab-close" type="button" aria-label="关闭">×</button></a>
+      </div>
+      <div class="role-layout">
+        <div class="role-list-panel">
+          <div class="role-list-header"><div class="role-list-title">角色列表</div><button class="btn btn-primary btn-sm" type="button" onclick="openModal('role-modal')">新增</button></div>
+          <div class="role-list-body" id="role-list"></div>
+        </div>
+        <div class="role-detail-panel" id="role-detail"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="role-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header"><span class="modal-title">新增角色</span><button class="modal-close" type="button" onclick="closeModal('role-modal')" aria-label="关闭">×</button></div>
+    <form onsubmit="return createRole(event)">
+      <div class="modal-body">
+        <div class="form-item"><label class="form-label"><span class="required">*</span>角色名称</label><input class="input" id="create-name" maxlength="32"></div>
+        <div class="form-item"><label class="form-label"><span class="required">*</span>角色编码</label><input class="input" id="create-code" maxlength="32" placeholder="大写字母开头，如 EDITOR"></div>
+      </div>
+      <div class="modal-footer"><button class="btn" type="button" onclick="closeModal('role-modal')">取消</button><button class="btn btn-primary" type="submit">创建</button></div>
+    </form>
+  </div>
+</div>
+<div id="role-switch-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal action-modal"><div class="modal-header"><span class="modal-title">未保存的修改</span><button class="modal-close" type="button" onclick="closeModal('role-switch-modal')" aria-label="关闭">×</button></div><div class="modal-body">当前角色有未保存的修改，确定离开吗？</div><div class="modal-footer"><button class="btn" type="button" onclick="closeModal('role-switch-modal')">取消</button><button class="btn btn-primary" type="button" onclick="confirmRoleSwitch()">离开</button></div></div>
+</div>
+<div id="role-delete-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal action-modal"><div class="modal-header"><span class="modal-title">删除角色</span><button class="modal-close" type="button" onclick="closeModal('role-delete-modal')" aria-label="关闭">×</button></div><div class="modal-body">确定删除这个角色吗？</div><div class="modal-footer"><button class="btn" type="button" onclick="closeModal('role-delete-modal')">取消</button><button class="btn btn-danger" type="button" onclick="deleteRole()">删除</button></div></div>
+</div>
+<script src="js/brand.js"></script>
+<script src="js/chrome.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/roles.js"></script>
+</body>
+</html>

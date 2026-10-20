@@ -107,4 +107,18 @@ document.addEventListener("click", function (event) {
   if (tab) tab.remove();
 });
 
+document.querySelectorAll(".pwd-toggle").forEach(function (toggle) {
+  var input = toggle.parentElement.querySelector("input");
+  if (!input) return;
+  toggle.addEventListener("click", function () {
+    var show = input.type === "password";
+    input.type = show ? "text" : "password";
+    toggle.setAttribute("aria-label", show ? "隐藏密码" : "显示密码");
+    var open = toggle.querySelector(".eye-open");
+    var off = toggle.querySelector(".eye-off");
+    if (open) open.hidden = show;
+    if (off) off.hidden = !show;
+  });
+});
+
 applyBrand();

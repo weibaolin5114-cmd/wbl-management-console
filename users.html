@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理系统</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="users" data-page-title="用户管理">
+<div class="layout-side" id="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header" id="header"></header>
+    <div class="content page-fill">
+      <div class="multi-tabs">
+        <a class="multi-tab" href="index.html">概览<button class="tab-close" type="button" aria-label="关闭">×</button></a>
+        <a class="multi-tab active" href="users.html">用户管理<button class="tab-close" type="button" aria-label="关闭">×</button></a>
+      </div>
+      <div class="filter-bar">
+        <form class="filter-row" onsubmit="searchUsers(); return false;">
+          <div class="filter-item"><label class="form-label">登录账号</label><input class="input" id="q-account" placeholder="登录账号"></div>
+          <div class="filter-item"><label class="form-label">姓名</label><input class="input" id="q-name" placeholder="姓名"></div>
+          <div class="filter-item"><label class="form-label">角色</label><select class="select" id="q-role"><option value="">全部角色</option><option value="admin">系统管理员</option><option value="operator">操作员</option><option value="viewer">查阅员</option></select></div>
+          <div class="filter-item"><label class="form-label">状态</label><select class="select" id="q-status"><option value="">全部</option><option value="1">启用</option><option value="0">停用</option></select></div>
+          <div class="filter-actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn" type="button" onclick="resetUserFilter()">重置</button></div>
+        </form>
+      </div>
+      <div class="table-wrapper">
+        <div class="table-toolbar"><button class="btn btn-primary" type="button" onclick="openUserCreate()">新增用户</button></div>
+        <table class="table" id="user-table">
+          <thead><tr><th class="col-index">序号</th><th>登录账号</th><th>姓名</th><th>手机</th><th>角色</th><th>状态</th><th class="col-action">操作</th></tr></thead>
+          <tbody id="user-list"></tbody>
+        </table>
+        <div id="empty-msg" class="empty" style="display:none"><div>暂无符合条件的用户</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="user-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header"><span class="modal-title" id="user-modal-title">新增用户</span><button class="modal-close" type="button" onclick="closeModal('user-modal')" aria-label="关闭">×</button></div>
+    <form onsubmit="return submitUser(event)">
+      <div class="modal-body">
+        <div id="modal-error" class="message message-error" style="display:none;margin-bottom:16px;"></div>
+        <div class="form-item"><label class="form-label"><span class="required">*</span>登录账号</label><input class="input" id="f-username" maxlength="32" placeholder="4 到 32 位字母或数字" autocomplete="off"></div>
+        <div class="form-item"><label class="form-label"><span class="required">*</span>姓名</label><input class="input" id="f-name" maxlength="32"></div>
+        <div class="form-item"><label class="form-label">手机</label><input class="input" id="f-phone" maxlength="20"></div>
+        <div class="form-item"><label class="form-label"><span class="required">*</span>角色</label><select class="select" id="f-role"><option value="admin">系统管理员</option><option value="operator">操作员</option><option value="viewer">查阅员</option></select></div>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-note" id="init-pwd-note">创建后需首次登录并修改密码</span>
+        <button class="btn" type="button" onclick="closeModal('user-modal')">取消</button>
+        <button class="btn btn-primary" type="submit">保存</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="action-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal action-modal">
+    <div class="modal-header"><span class="modal-title" id="action-title">确认</span><button class="modal-close" type="button" onclick="closeModal('action-modal')" aria-label="关闭">×</button></div>
+    <div class="modal-body"><div id="action-body"></div><div id="action-error" class="message message-error" style="display:none;margin-top:12px;"></div></div>
+    <div class="modal-footer"><button class="btn" type="button" id="action-cancel" onclick="closeModal('action-modal')">取消</button><button class="btn btn-primary" type="button" id="action-ok" onclick="confirmUserAction()">确定</button></div>
+  </div>
+</div>
+<script src="js/brand.js"></script>
+<script src="js/chrome.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/users.js"></script>
+</body>
+</html>
