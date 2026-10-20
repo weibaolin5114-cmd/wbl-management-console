@@ -1,3 +1,4 @@
+/* 登录、忘记密码和修改密码页的样式。 */
 body.login-body {
   min-height: 100vh;
   background: linear-gradient(180deg, #f6f7f6 0%, #eef3f1 100%);
